@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,26 @@ namespace WindowsFormsApp1
                 FullName = txtLastName.Text,
             };
             users.Add(u);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+            //sfd.DefaultExt = "csv";
+            //sfd.AddExtension = true;
+
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                foreach (var u in users)
+                {
+                    sw.Write(u.FullName);
+                    sw.Write(";");
+                    sw.Write(u.ID);
+                    sw.Write(";");
+                    sw.WriteLine();
+                }
+            }
         }
     }
 }
