@@ -20,7 +20,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             lblLastName.Text = Resource1.FullName; 
-            btnAdd.Text = Resource1.Add; 
+            btnAdd.Text = Resource1.Add;
+            btnKiiras.Text = Resource1.Kiiras;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
