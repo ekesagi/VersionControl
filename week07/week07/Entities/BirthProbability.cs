@@ -10,5 +10,6 @@ namespace week07.Entities
     {
         public int Age { get; set; }
         public double P { get; set; }
+        public int NbrOfChildren { get; set; }
     }
 }
