@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Abstractions;
+using WindowsFormsApp1.Entities;
 
 namespace WindowsFormsApp1
 {
@@ -72,6 +74,14 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             Factory = new BallFactory();
+
+            private void button2_Click(object sender, EventArgs e)
+            {
+                Factory = new BallFactory
+                {
+                    BallColor = button3.BackColor
+                };
+            }
         }
 
         private void DisplayNext()
@@ -82,6 +92,17 @@ namespace WindowsFormsApp1
             _nextToy.Top = lblNext.Top + lblNext.Height + 20;
             _nextToy.Left = lblNext.Left;
             Controls.Add(_nextToy);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorPicker.Color;
         }
     }
 }
