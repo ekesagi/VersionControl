@@ -14,18 +14,18 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-            Factory = new BallFactory();
-        }
-
         private List<Ball> _balls = new List<Ball>();
         private BallFactory _factory;
         public BallFactory Factory
         {
             get { return _factory; }
             set { _factory = value; }
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+            Factory = new BallFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
