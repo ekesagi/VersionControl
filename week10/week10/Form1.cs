@@ -38,8 +38,6 @@ namespace week10
                 gc.AddPlayer(nbrOfSteps);
             }
             gc.Start();
-
-            
         }
 
         private void Gc_GameOver(object sender)
