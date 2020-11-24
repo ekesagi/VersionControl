@@ -39,10 +39,7 @@ namespace week10
             }
             gc.Start();
 
-            var playerList = from p in gc.GetCurrentPlayers()
-                             orderby p.GetFitness() descending
-                             select p;
-            var topPerformers = playerList.Take(populationSize / 2).ToList();
+            
         }
 
         private void Gc_GameOver(object sender)
